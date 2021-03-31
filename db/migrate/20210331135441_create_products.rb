@@ -3,7 +3,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
     create_table :products do |t|
       t.string :name
       t.string :short_description
-      t.boolean :published
+      t.boolean :published, default: true
       t.text :long_description
       t.references :supplier, null: false, foreign_key: true
 
