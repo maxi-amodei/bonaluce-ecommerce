@@ -1,0 +1,9 @@
+<h1><%= @category.name%> | <%= @category.products.count %></h1>
+<h2>Products:</h2>
+
+<% @category.products.each do |product| %>
+  <ul>
+    <li> <%= link_to  product.name, products_path(product.id) %> | (Descripción: <%= product.short_description  %>, Proveedor: <%= product.supplier.name %>)</li>
+  </ul>
+<% end %>
+<%= link_to "Home", root_path  %>
