@@ -2,6 +2,6 @@
 <p>Find me in app/views/pages/home.html.erb</p>
 <% @categories.each do |cat| %>
   <ul>
-    <li><%= link_to cat.name, category_path(cat.id)  %> | (<%= cat.products.count%> products)</li>
+    <li><%= link_to cat.name, category_path(cat.id)  %> | (<%= pluralize cat.products.count, 'product'%>)</li>
   </ul>
 <% end %>
