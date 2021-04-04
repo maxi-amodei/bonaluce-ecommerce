@@ -3,6 +3,9 @@
 <p><strong>Descripcion:</strong> <%= @product.long_description %></p>
 <p><strong>Proveedor:</strong> <%= @product.supplier.name %></p>
 
+<%= debug  session[:cart_id] = [] %>
+
+<%= session[:cart_id] << @product %>
 
 <% @product_variations.each do |product| %>
 
