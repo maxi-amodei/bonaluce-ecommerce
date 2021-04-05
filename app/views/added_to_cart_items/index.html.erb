@@ -1,0 +1,16 @@
+<%= debug  @added_to_cart_products.count  %>
+<%= debug  @cart_items  %>
+
+<% @added_to_cart_products.each do |product| %>
+  <ul>
+    <li> <%= product.product_variation.name  %> </li>
+    <%= button_to "Remover", cart_item_path(product.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+    
+  </ul>
+<% end %>
+
+ <%#= button_to "Confirmar compra", orders_path, method: :post, data: { confirm: 'Are you sure?' } %>
+ <%#Con este boton creo la orden, accediendo a todos los productor del cart%>
+ <%#Puedo requerir que tengan cuenta%>
+ <%# O solo pedirles un nombre  y telefono%>
+

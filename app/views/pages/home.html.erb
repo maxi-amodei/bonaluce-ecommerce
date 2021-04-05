@@ -1,5 +1,7 @@
 <h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<p>Session cart: [SACAR]</p>
+<%= debug session[:cart] %>
+
 <% @categories.each do |cat| %>
   <ul>
     <li><%= link_to cat.name, category_path(cat.id)  %> | (<%= pluralize cat.products.count, 'product'%>)</li>
