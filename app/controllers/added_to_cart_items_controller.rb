@@ -16,7 +16,7 @@ class AddedToCartItemsController < ApplicationController
 
     if @added_to_cart_item.save
       add_item_id_to_cart
-      redirect_to root_path
+      redirect_to "/cart"
       flash[:notice] = "Item Added"
     else
       redirect_to root_path

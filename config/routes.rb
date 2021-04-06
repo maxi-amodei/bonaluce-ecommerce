@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :products
   resources :categories, only: [:show]
+  resources :orders, only: [:index, :create]
 
   resources :added_to_cart_items, only: [:create, :destroy], as: :cart_items
   get '/cart', to: 'added_to_cart_items#index'
