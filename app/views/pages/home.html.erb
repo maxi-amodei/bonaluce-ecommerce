@@ -4,36 +4,35 @@
 <%#= pluralize cat.products.count, 'product'%>
 
 
+<div class="container">
+  <!-- Categories section -->
+  <section id="cards" class="home-cards">
+    <% @categories.each do |cat| %>
+      <div class="home-container">
+        <a href="#" class="img-container">
+          <%= image_tag ("#{cat.name.downcase}.svg")%>
+        </a>
+      <%= link_to cat.name, category_path(cat.id) %>
+      </div>      
+    <% end %>
+  </section>
 
-
-<!-- Explain section -->
-<section class="explain-section">
-  <div class="explain-container">
-      <a href="#">como comprar</a>
-  </div>
-  <div class="explain-container">
-      <a href="#">medios de pago</a>
-  </div>
-  <div class="explain-container">
-      <a href="#">envios</a>
-  </div>
-  <div class="explain-container">
-      <a href="#">contactate con nosotros</a>
-  </div>
-</section>
-
-<section id="cards" class="home-cards">
-  <% @categories.each do |cat| %>
-    <div class="home-container">
-      <a href="#" class="img-container">
-        <%= image_tag ("#{cat.name.downcase}.svg")%>
-      </a>
-     <%= link_to cat.name, category_path(cat.id) %>
-    </div>      
-  <% end %>
-</section>
-
-
+  <!-- Explain section -->
+  <section class="explain-section">
+    <div class="explain-container">
+        <a href="#">como comprar</a>
+    </div>
+    <div class="explain-container">
+        <a href="#">medios de pago</a>
+    </div>
+    <div class="explain-container">
+        <a href="#">envios</a>
+    </div>
+    <div class="explain-container">
+        <a href="#">contactate con nosotros</a>
+    </div>
+  </section>
+</div>
 
 
 
