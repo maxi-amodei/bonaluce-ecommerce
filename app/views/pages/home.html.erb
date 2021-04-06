@@ -1,9 +1,47 @@
 <h1>Pages#home</h1>
 <p>Session cart: [SACAR]</p>
 <%= debug session[:cart] %>
+<%#= pluralize cat.products.count, 'product'%>
 
-<% @categories.each do |cat| %>
-  <ul>
-    <li><%= link_to cat.name, category_path(cat.id)  %> | (<%= pluralize cat.products.count, 'product'%>)</li>
-  </ul>
-<% end %>
+
+
+
+<!-- Explain section -->
+<section class="explain-section">
+  <div class="explain-container">
+      <a href="#">como comprar</a>
+  </div>
+  <div class="explain-container">
+      <a href="#">medios de pago</a>
+  </div>
+  <div class="explain-container">
+      <a href="#">envios</a>
+  </div>
+  <div class="explain-container">
+      <a href="#">contactate con nosotros</a>
+  </div>
+</section>
+
+<section id="cards" class="home-cards">
+  <% @categories.each do |cat| %>
+    <div class="home-container">
+      <a href="#" class="img-container">
+        <%= image_tag ("#{cat.name.downcase}.svg")%>
+      </a>
+     <%= link_to cat.name, category_path(cat.id) %>
+    </div>      
+  <% end %>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<%#= image_tag ("banio.svg")%>
+<a href="#"><i class="fab fa-twitter"></i></a>

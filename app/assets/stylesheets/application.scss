@@ -11,3 +11,10 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: #000;
+  font-size: 12px;
+  line-height: 1.5;
+}

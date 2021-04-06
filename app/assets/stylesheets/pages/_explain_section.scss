@@ -1,0 +1,56 @@
+/* Explain Section */
+.explain-section{
+	display: flex;
+	align-content: center;
+	align-items: center;
+  justify-content: center;
+  margin-bottom: 70px;
+}
+
+.explain-section .explain-container{
+	background-color:#DBDBDB;
+	height:155px;
+	width: 100%;
+	display: flex;
+	align-content: center;
+	align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-right: #000 1px solid;
+  transition: 0.3s;
+	
+}
+.explain-section .explain-container:last-child{
+	border-right:0;
+}	
+
+.explain-section .explain-container a{
+	color:#000;
+	text-transform: uppercase;
+	font-size: 25px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.explain-section .explain-container:hover{
+	background-color:#6DA55F;
+}
+
+.explain-section .explain-container a:hover{
+	color:#DBDBDB;
+}
+
+
+/* first media query */
+@media(max-width: 800px) {
+	.explain-section{
+		flex-wrap: wrap;
+	}
+	.explain-section .explain-container{
+		height:60px;
+		width: 70%;	
+	}
+	.explain-section .explain-container a {
+		font-size:18px;
+	}
+}
