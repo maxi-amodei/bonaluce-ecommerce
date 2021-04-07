@@ -1,17 +1,20 @@
 
 <h1>My Orders: <%= current_user.email %> </h1>
 
-<% @orders.each do |order| %>
-  <ul>
-    <li> Total: <%= number_to_currency order.total_amount %></li>
-  </ul>
-  <% order.added_to_cart_items.each do |item| %>
-    <ul>
-      <li> Product: <%= item.product_variation.name %></li>
-      <li> Quantity: <%= item.quantity %></li>
-      <li> Price per unit: <%= item.price %></li>
-      <li> Subtotal: <%= item.subtotal %></li>
-    </ul>
-  <% end %>
+
+<% @orders.each_with_index do |order, i| %>
+  <div class="container border solid">  
+    
+    <h2> Order <strong><%= i + 1 %></strong> Total: <%= number_to_currency order.total_amount %></h2>
+    
+    <% order.added_to_cart_items.each do |item| %>
+      <ul>
+        <li> Product: <%= item.product_variation.name %></li>
+        <li> Quantity: <%= item.quantity %></li>
+        <li> Price per unit: <%= item.price %></li>
+        <li> Subtotal: <%= item.subtotal %></li>
+      </ul>
+    <% end %>
+  </div>
 <% end %>
 <%= link_to "Home", root_path  %>
