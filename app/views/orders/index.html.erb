@@ -10,6 +10,7 @@
     <% order.added_to_cart_items.each do |item| %>
       <ul>
         <li> Product: <%= item.product_variation.name %></li>
+        <li> Product: <%= item.product_variation.color %></li>
         <li> Quantity: <%= item.quantity %></li>
         <li> Price per unit: <%= item.price %></li>
         <li> Subtotal: <%= item.subtotal %></li>

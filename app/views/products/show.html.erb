@@ -1,22 +1,41 @@
-<h1><%= @product.name %></h1>
-<p><%= @product.short_description %></p>
-<p><strong>Descripcion:</strong> <%= @product.long_description %></p>
-<p><strong>Proveedor:</strong> <%= @product.supplier.name %></p>
+<div class="container">
+  <h1><%= @product.name %></h1>
+</div>
 
-<% @product_variations.each do |product| %>
+<div class="container d-flex">
 
-  <%= product.color %>
-  <%= product.size %>
-
-
-
-  <%= form_tag cart_items_path do %>
-      <%= hidden_field_tag :product_variation_id, product.id  %>
-      <%= hidden_field_tag :price, product.price %>
-      <%= number_field_tag :quantity, 1 %>
-      <%= submit_tag "Add to Cart" %>
-  <% end %>
-<% end %>
+  <div class="container border-solid">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <div class="container">
+    <p class="my-3 text-center"> <strong><%= @product.short_description %></strong> </p>
+    <p><strong>Descripcion:</strong> <%= @product.long_description %></p>
+    <p><strong>Dimensiones:</strong> <%= @product.product_variations.first.size %></p>
+    <p><strong>Proveedor:</strong> <%= @product.supplier.name %></p>
+    <p><strong>Precios:</strong></p>
+    <% @product_variations.each do |product| %>
+      <div class="d-flex">
+        <%= product.color %>: 
+        <%= number_to_currency product.price %>
+      </div>
+    <% end %>
+    <div class="container text-center w-50">
+      <p class="mt-5"><strong>Seleccionar...</strong></p>
+      <div class="actions mb-2 flex-wrap">
+        <a class="btn round-bordered incrementer minus disabled" data-offset="-1">-</a>
+        <span id="counter" data-count="1">1</span>
+        <a class="btn round-bordered incrementer" data-offset="1">+</a>
+      </div>
+      <%= form_tag cart_items_path, class:"d-flex flex-column text-center" do %>
+        <%= select_tag "product_variation_id", options_from_collection_for_select(@product_variations, :id, :color), class:"mb-3" %>
+        <%= hidden_field_tag :quantity, 1 %>
+        <%= submit_tag "Añadir a carrito", class:"" %>
+      <% end %>   
+    </div>
+  </div>
+</div>
 
 
 
