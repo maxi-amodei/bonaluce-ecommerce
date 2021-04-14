@@ -12,8 +12,8 @@
   </head>
 
   <body>
-  <%= debug session[:last_visited_path] %>
     <%= render 'shared/navbar' %>
+    <%= debug session[:last_visited_path] %>
     <%= render 'shared/flashes' %>
 
     <%= yield %>
