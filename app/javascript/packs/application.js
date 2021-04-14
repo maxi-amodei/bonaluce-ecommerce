@@ -26,9 +26,11 @@ require("channels")
 import "bootstrap";
 
 // Internal imports, e.g:
- import { test } from '../components/shopping_form';
+ import { shoppingForm } from '../components/shopping_form';
+ import { initUpdateNavbarOnScroll } from '../components/navbar'
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  test();
+  shoppingForm();
+  initUpdateNavbarOnScroll();
 });

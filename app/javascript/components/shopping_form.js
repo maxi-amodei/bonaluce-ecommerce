@@ -1,4 +1,4 @@
-const test = () => {
+const shoppingForm = () => {
   const btns = document.querySelectorAll(".incrementer");
   if(btns.length != 0){
     const minusBtn = btns[0];
@@ -34,4 +34,4 @@ const test = () => {
   }
 };
 
-export { test }
+export { shoppingForm }
