@@ -15,12 +15,14 @@
     <p><strong>Dimensiones:</strong> <%= @product.product_variations.first.size %></p>
     <p><strong>Proveedor:</strong> <%= @product.supplier.name %></p>
     <p><strong>Precios:</strong></p>
+    
     <% @product_variations.each do |product| %>
       <div class="d-flex">
         <%= product.color %>: 
         <%= number_to_currency product.price %>
       </div>
     <% end %>
+    <div class="d-flex align-items-center"><h2>Consultar:</h2> <%=link_to image_tag("whatsapp-icon.png"),"https://api.whatsapp.com/send?phone=541158622681" , class:"whatsapp-icon", target:"_blank" %></div>
     <div class="container text-center w-50">
       <p class="mt-5"><strong>Seleccionar...</strong></p>
       <div class="actions mb-2 flex-wrap">
