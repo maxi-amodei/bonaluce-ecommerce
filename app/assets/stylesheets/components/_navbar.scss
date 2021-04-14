@@ -17,6 +17,8 @@
   color: rgba(0, 0, 0, 0.5);
   border: none;
 }
-//  .fa-user-circle{
-//   width: 40px;
-// }
+
+.dropdown-toggle::after {
+  content: none;
+}
+
