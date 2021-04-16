@@ -1,0 +1,36 @@
+
+.help{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  bottom: 3rem;
+  right: 2.5rem;
+  p{
+    margin: 0;
+    font-size: 12px;
+  }
+}
+
+.whatsapp-link {
+  text-align: center;
+  font-size: 1.25rem;
+  animation: bounce 2s ease-in-out infinite;
+  width: 2rem;
+  height: 2rem;
+  // display: grid;
+  // place-items: center;
+  // z-index: -100;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
