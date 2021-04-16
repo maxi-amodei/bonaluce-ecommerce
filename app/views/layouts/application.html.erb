@@ -15,8 +15,10 @@
     <%= render 'shared/navbar' %>
     <%= debug session[:last_visited_path] %>
     <%= render 'shared/flashes' %>
-
-    <%= yield %>
+    <div class="container-fluid margin-y-axis">
+    
+      <%= yield %>
+    </div>
     <%= render 'shared/footer' %>
   </body>
 </html>
