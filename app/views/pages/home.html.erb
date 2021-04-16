@@ -8,8 +8,10 @@
   <!-- Categories section -->
   <section id="cards" class="home-cards">
     <% @categories.each do |cat| %>
+
+      
       <div class="home-container">
-        <a href="#" class="img-container">
+        <a href=<%= category_path(cat.id) %> class="img-container">
           <%= image_tag ("#{cat.name.downcase}.svg")%>
         </a>
       <%= link_to cat.name, category_path(cat.id) %>
