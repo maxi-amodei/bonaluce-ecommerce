@@ -6,6 +6,7 @@
   position: fixed;
   bottom: 3rem;
   right: 2.5rem;
+  z-index: 100;
   p{
     margin: 0;
     font-size: 12px;
@@ -20,7 +21,6 @@
   height: 2rem;
   // display: grid;
   // place-items: center;
-  // z-index: -100;
 }
 
 @keyframes bounce {
