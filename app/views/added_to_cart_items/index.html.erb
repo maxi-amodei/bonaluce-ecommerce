@@ -2,18 +2,24 @@
 <%= debug  @cart_items  %>
 
 <% @added_to_cart_products.each do |product| %>
-  <ul>
-    <li> <%= product.product_variation.name  %> </li>
-    <%= button_to "Remover", cart_item_path(product.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-    
+  <div class="container d-flex justify-content-between">
+    <%= product.product_variation.name%>
+    <div class="d-flex >
       <%= form_tag cart_item_path(product.id), class:"d-flex flex-column text-center update-form", method: :patch do %>
         <%= number_field_tag :quantity, product.quantity, min: 1,  class: 'text-center', style: "width:50px;" %>
-      <% end %> 
-  </ul>
+      <% end %>
+      <%= button_to cart_item_path(product.id), method: :delete, style:"border:none; background:none;" do %>
+        <i class="fas fa-trash-alt"></i>
+      <% end %>
+    </div>
+  </div>
 <% end %>
-
 <% if session[:cart].any? %>
- <%= button_to "Confirmar compra", orders_path, method: :post %>
+  <%= form_tag orders_path, method: :post, class:"text-center mt-5" do %>
+    <%= button_tag class: "btn btn-primary rounded-pill mt-5", type: "submit" do %>
+        Confirmar compra
+    <% end %>
+  <% end %>
 <% else %>
   <p class="text-center">Todavia no has agregado nada a tu carrito</p>
 <% end %>
