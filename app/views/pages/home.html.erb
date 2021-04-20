@@ -17,6 +17,7 @@
       <%= link_to cat.name, category_path(cat.id) %>
       </div>      
     <% end %>
+    <div id="need-help"></div>
   </section>
 </div>
 
@@ -25,7 +26,7 @@
     <div class="help-section-content mt-5">
       <h2>¿Necesita asesoramiento?</h2>
       <p>Contáctese con nosotros:</p>
-      <a href="https://api.whatsapp.com/send?phone=541158622681" class="btn">
+      <a href="https://api.whatsapp.com/send?phone=541158622681" target="blank" class="btn">
           <i class="fab fa-2x fa-whatsapp icon"></i>
       </a>
       <a href="#" class="btn">
@@ -50,13 +51,13 @@
     <div class="explain-container">
         <a href="#">envios</a>
     </div>
-    <div class="explain-container">
-        <a href="#">contactate con nosotros</a>
-    </div>
+    <%# <div class="explain-container"> %>
+        <%# <a href="#">contactate con nosotros</a> %>
+    <%# </div> %>
   </section>
 
   <div class="whatsapp-contact">
-    <%=link_to image_tag("whatsapp-icon.png"),"https://api.whatsapp.com/send?phone=541158622681" , class:"whatsapp-icon whatsapp-link", target:"_blank" %>
+    <%=link_to image_tag("whatsapp-icon.png"),"https://api.whatsapp.com/send?phone=541158622681" , target: "_blank", class:"whatsapp-icon whatsapp-link"%>
     <%# <p class="mt-4">Consultas</p> %>
   </div>
 </div>

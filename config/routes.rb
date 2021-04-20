@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       }
 
   root to: 'pages#home'
-  resources :products
+  resources :products, only: [:show, :index]
   resources :categories, only: [:show]
   resources :orders, only: [:index, :create]
 

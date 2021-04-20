@@ -1,5 +1,10 @@
 class ProductsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :show
+  skip_before_action :authenticate_user!, only: [:show, :index]
+
+  def index
+  @products = Product.all
+  end
+  
   def show
     @product = Product.find(params[:id])
     @product_variations = @product.product_variations
