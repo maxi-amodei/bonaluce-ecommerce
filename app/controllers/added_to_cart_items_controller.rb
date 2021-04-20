@@ -38,7 +38,6 @@ class AddedToCartItemsController < ApplicationController
   def update
     @added_to_cart_item = AddedToCartItem.find(params[:id])
     @added_to_cart_item.update(quantity: params[:quantity])
-    raise
     redirect_to cart_path
   end
 
