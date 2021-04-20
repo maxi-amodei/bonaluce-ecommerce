@@ -6,8 +6,7 @@ const updateQuantity = () => {
   if(quantityForm){
     
     quantityForm.forEach((input)=>{
-      input.addEventListener("change", (event)=>{
-        console.log(input);
+      input.addEventListener("change", ()=>{
         input.submit();
       })
     });
