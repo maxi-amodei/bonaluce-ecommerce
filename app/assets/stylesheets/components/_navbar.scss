@@ -9,6 +9,18 @@
 .logo{
   font-size: 30px;
   font-weight: lighter;
+  transition: 0.4s;
+}
+.logo:hover{
+  transform: scale(1.1);
+}
+
+.nav-item{
+  transition: 0.4s;
+}
+
+.nav-item:hover{
+  transform: scale(1.05);
 }
 
 .navbar-lewagon .navbar-collapse {
