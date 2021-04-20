@@ -1,4 +1,5 @@
 class AddedToCartItemsController < ApplicationController
+  skip_before_action :authenticate_user!
   before_action :initialize_session_cart
   before_action :load_cart
 
