@@ -6,10 +6,18 @@
     <li> <%= product.product_variation.name  %> </li>
     <%= button_to "Remover", cart_item_path(product.id), method: :delete, data: { confirm: 'Are you sure?' } %>
     
+      <%= form_tag cart_item_path(product.id), class:"d-flex flex-column text-center update-form", method: :patch do %>
+        <%= number_field_tag :quantity, product.quantity, min: 1,  class: 'text-center', style: "width:50px;" %>
+      <% end %> 
   </ul>
 <% end %>
 
+<% if session[:cart].any? %>
  <%= button_to "Confirmar compra", orders_path, method: :post %>
+<% else %>
+  <p class="text-center">Todavia no has agregado nada a tu carrito</p>
+<% end %>
+
  <%#Con este boton creo la orden, accediendo a todos los productor del cart%>
  <%#Puedo requerir que tengan cuenta%>
  <%# O solo pedirles un nombre  y telefono%>

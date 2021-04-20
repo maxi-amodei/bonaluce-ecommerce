@@ -28,9 +28,12 @@ import "bootstrap";
 // Internal imports, e.g:
  import { shoppingForm } from '../components/shopping_form';
  import { initUpdateNavbarOnScroll } from '../components/navbar'
+ import { updateQuantity } from '../components/cart_index'
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   shoppingForm();
   initUpdateNavbarOnScroll();
+  updateQuantity();
 });

@@ -18,10 +18,10 @@ class AddedToCartItemsController < ApplicationController
     if @added_to_cart_item.save
       add_item_id_to_cart
       redirect_to "/cart"
-      flash[:notice] = "Item Added"
+      flash[:notice] = "Añadido!"
     else
       redirect_to root_path
-      flash[:notice] = "Could not add item"
+      flash[:notice] = "Hubo un problema, consultenos por Whatsapp."
     end
   end
 
@@ -33,6 +33,13 @@ class AddedToCartItemsController < ApplicationController
     else
       flash[:notice] = "Could not remove"
     end
+  end
+
+  def update
+    @added_to_cart_item = AddedToCartItem.find(params[:id])
+    @added_to_cart_item.update(quantity: params[:quantity])
+    raise
+    redirect_to cart_path
   end
 
   private
