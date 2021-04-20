@@ -1,6 +1,7 @@
 const initUpdateNavbarOnScroll = () => {
   const navbar = document.querySelector('.navbar');
   const userIcon = document.querySelector('.fa-user-circle');
+  const cartIcon = document.querySelector('.fa-shopping-cart');
   if (navbar) {
     window.addEventListener('scroll', () => {
       if (window.scrollY >= navbar.offsetHeight) {
@@ -8,6 +9,8 @@ const initUpdateNavbarOnScroll = () => {
         document.querySelectorAll('.nav-link').forEach(item => item.style.fontSize = "12px");
         if(userIcon){
           userIcon.style.fontSize = "2.1em";
+          cartIcon.style.fontSize = "1.5em";
+
         }
 
       } else {
@@ -15,6 +18,7 @@ const initUpdateNavbarOnScroll = () => {
         document.querySelectorAll('.nav-link').forEach(item => item.style.fontSize = "14px");
         if(userIcon){
           userIcon.style.fontSize = "3em";
+          cartIcon.style.fontSize = "2em";
         }
 
       }
