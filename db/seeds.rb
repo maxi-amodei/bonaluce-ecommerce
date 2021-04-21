@@ -6,16 +6,160 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# PROD = ["Lampara de escritorio", "Arañas", "Lampara de pie", "Colgante", "Embutido", "Farola", "Aplique"]
+puts "Starting seeds...."
 
-# SUP = Supplier.all
+PROD = ["Lámpara de escritorio", "Araña", "Lámpara de pie", "Colgante", "Embutido", "Farola", "Aplique", "Bidireccional"]
+COL = ["Negro", "Cromo", "Blanco", "Gris", "Dorado"]
+CAT = ["Exterior","Baño","Cocina","Cocina", "Living","Dormitorio","Promociones"]
+# Suppliers = ["Brimpex", "Candil", "FW","Tecnosam"]
+SUP = Supplier.all
 
-# EXT = Category.find_by_name("Exterior")
-# BAN = Category.find_by_name("Baño")
-# COC = Category.find_by_name("Cocina")
-# LIV = Category.find_by_name("Living")
-# DOR = Category.find_by_name("Dormitorio")
-# PRO = Category.find_by_name("Promociones")
+CAT.each do |name|
+  category = Category.new(name:name)
+  category.save!
+end
+
+EXT = Category.find_by_name("Exterior")
+BAN = Category.find_by_name("Baño")
+COC = Category.find_by_name("Cocina")
+LIV = Category.find_by_name("Living")
+DOR = Category.find_by_name("Dormitorio")
+PRO = Category.find_by_name("Promociones")
+
+#producto 0 (Con 2 variaciones)
+
+COL.each do |color|
+  producto = Product.new(name:"#{PROD[0]} #{color}",
+                        short_description:"Moderno velador de escritorio con lampara bajo consumo",
+                        supplier:SUP.sample,
+                        color:color,
+                        price: 3000.0,
+                        discount_price:0.2,
+                        product_diameter:"20",
+                        product_length:"0",
+                        product_height:"50",
+                        product_width:"0")
+  producto.categories << DOR
+  producto.categories << LIV
+  producto.categories << PRO
+  producto.save!
+end
+
+COL.each do |color|
+  producto = Product.new(name:"#{PROD[1]} #{color}",
+                        short_description:"Araña de estilo, ideal para Dormitorio o living",
+                        supplier:SUP.sample,
+                        color:color,
+                        price: 30000.0,
+                        discount_price:0.2,
+                        product_diameter:"40",
+                        product_length:"30",
+                        product_height:"0",
+                        product_width:"0")
+  producto.categories << DOR
+  producto.categories << LIV
+  producto.categories << PRO
+  producto.save!
+end
+
+COL.each do |color|
+  producto = Product.new(name:"#{PROD[2]} #{color}",
+                        short_description:"Moderna lampara de pie con lampara bajo consumo calido, ideal dormitorio o living",
+                        supplier:SUP.sample,
+                        color:color,
+                        price: 10000.0,
+                        discount_price:0.2,
+                        product_diameter:"40",
+                        product_length:"0",
+                        product_height:"185",
+                        product_width:"0")
+  producto.categories << DOR
+  producto.categories << LIV
+  producto.categories << PRO
+  producto.save!
+end
+
+COL.each do |color|
+  producto = Product.new(name:"#{PROD[3]} #{color}",
+                        short_description:"Colgante siglo XXI de 3 luces",
+                        supplier:SUP.sample,
+                        color:color,
+                        price: 9000.0,
+                        discount_price:0.2,
+                        product_diameter:"0",
+                        product_length:"100",
+                        product_height:"0",
+                        product_width:"20")
+  producto.categories << COC
+  producto.categories << LIV
+  producto.save!
+end
+
+COL.each do |color|
+  producto = Product.new(name:"#{PROD[4]} #{color}",
+                        short_description:"Embutido LED",
+                        supplier:SUP.sample,
+                        color:color,
+                        price: 5000.0,
+                        discount_price:0.2,
+                        product_diameter:"20",
+                        product_length:"0",
+                        product_height:"0",
+                        product_width:"0")
+  producto.categories << COC
+  producto.categories << BAN
+  producto.categories << EXT
+  producto.save!
+end
+
+COL.each do |color|
+  producto = Product.new(name:"#{PROD[5]} #{color}",
+                        short_description:"Farola exterior, ideal para Jardin o frente",
+                        supplier:SUP.sample,
+                        color:color,
+                        price: 7000.0,
+                        discount_price:0.2,
+                        product_diameter:"0",
+                        product_length:"40",
+                        product_height:"0",
+                        product_width:"20")
+  producto.categories << PRO
+  producto.categories << EXT
+  producto.save!
+end
+
+COL.each do |color|
+  producto = Product.new(name:"#{PROD[6]} #{color}",
+                        short_description:"Aplique de pared para baño",
+                        supplier:SUP.sample,
+                        color:color,
+                        price: 15000.0,
+                        discount_price:0.2,
+                        product_diameter:"0",
+                        product_length:"60",
+                        product_height:"0",
+                        product_width:"10")
+  producto.categories << BAN
+  producto.save!
+end
+
+COL.each do |color|
+  producto = Product.new(name:"#{PROD[7]} #{color}",
+                        short_description:"Bidireccional ideal para frente o jardin",
+                        supplier:SUP.sample,
+                        color:color,
+                        price: 8000.0,
+                        discount_price:0.2,
+                        product_diameter:"0",
+                        product_length:"20",
+                        product_height:"0",
+                        product_width:"10")
+  producto.categories << EXT
+  producto.categories << PRO
+  producto.save!
+end
+
+puts "Succesfully created"
 
 # #producto 0 (Con 2 variaciones)
 # producto = Product.new(name:PROD[0],
@@ -47,75 +191,3 @@
 
 # var_1 = ProductVariation.new(product: prod_1, size:"Diametro:50cm",color:"Cromo", name:"Araña", price:45000.0)
 # var_1.save!
-
-
-# #producto 2 (Con 3 variaciones)
-# prod_2 = Product.new(name:PROD[2],
-#                       short_description:"Moderna lampara de pie con lampara bajo consumo calido, ideal dormitorio o living",
-#                       supplier:SUP.sample)
-# prod_2.categories << DOR
-# prod_2.categories << LIV
-# prod_2.categories << PRO
-# prod_2.save!
-
-# var_2 = ProductVariation.new(product: prod_2, size:"185x30",color:"Negro", name:"Lampara de pie", price:10000.0)
-# var_2.save!
-
-# var_2 = ProductVariation.new(product: prod_2, size:"185x30",color:"Cromo", name:"Lampara de pie", price:15000.0)
-# var_2.save!
-
-# var_2 = ProductVariation.new(product: prod_2, size:"185x30",color:"Dorado", name:"Lampara de pie", price:15000.0)
-# var_2.save!
-
-# #producto 3 (Con 1 variaciones)
-# prod_3 = Product.new(name:PROD[3],
-#                       short_description:"Colgante siglo XXI",
-#                       supplier:SUP.sample)
-# prod_3.categories << COC
-# prod_3.categories << LIV
-# prod_3.categories << PRO
-# prod_3.save!
-
-# var_3 = ProductVariation.new(product: prod_3, size:"200x10",color:"Blanco", name:"Colgante", price:10000.0)
-# var_3.save!
-
-# #producto 4 (Con 2 variaciones)
-# prod_4 = Product.new(name:PROD[4],
-#                       short_description:"Embutido LED",
-#                       supplier:SUP.sample)
-# prod_4.categories << COC
-# prod_4.categories << LIV
-# prod_4.categories << BAN
-# prod_4.save!
-
-# var_4 = ProductVariation.new(product: prod_4, size:"20x20",color:"Negro", name:"Embutido", price:5000.0)
-# var_4.save!
-# var_4 = ProductVariation.new(product: prod_4, size:"20x20",color:"Blanco", name:"Embutido", price:5000.0)
-# var_4.save!
-
-# #producto 5 (Con 2 variaciones)
-# prod_5 = Product.new(name:PROD[5],
-#                       short_description:"Farola exterior, ideal para Jardin o frente",
-#                       supplier:SUP.sample)
-# prod_5.categories << EXT
-# prod_5.categories << PRO
-
-# prod_5.save!
-
-# var_5 = ProductVariation.new(product: prod_5, size:"40x20",color:"Negro", name:"Farola", price:6000.0)
-# var_5.save!
-# var_5 = ProductVariation.new(product: prod_5, size:"40x20",color:"Cromo", name:"Farola", price:8000.0)
-# var_5.save!
-
-# #producto 6 (Con 1 variaciones)
-# prod_6 = Product.new(name:PROD[6],
-#                       short_description:"Aplique de pared para baño",
-#                       supplier:SUP.sample)
-# prod_6.categories << BAN
-
-# prod_6.save!
-
-# var_6 = ProductVariation.new(product: prod_6, size:"60x10X15",color:"Blanco", name:"Aplique", price:7000.0)
-# var_6.save!
-# var_6 = ProductVariation.new(product: prod_6, size:"60x10X15",color:"Cromo", name:"Aplique", price:8000.0)
-# var_6.save!
