@@ -12,16 +12,15 @@
   <div class="container">
     <p class="my-3 text-center"> <strong><%= @product.short_description %></strong> </p>
     <p><strong>Descripcion:</strong> <%= @product.long_description %></p>
-    <p><strong>Dimensiones:</strong> <%= @product.product_variations.first.size %></p>
+    <p><strong>Dimensiones:</strong> <%= @product.product_diameter %></p>
     <p><strong>Proveedor:</strong> <%= @product.supplier.name %></p>
     <p><strong>Precios:</strong></p>
     
-    <% @product_variations.each do |product| %>
+    
       <div class="d-flex">
-        <%= product.color %>: 
-        <%= number_to_currency product.price %>
+        <%= @product.color %>: 
+        <%= number_to_currency @product.price %>
       </div>
-    <% end %>
     
     <div class="d-flex align-items-center"><h2>Consultar:</h2> <%=link_to image_tag("whatsapp-icon.png"),"https://api.whatsapp.com/send?phone=541158622681" , class:"whatsapp-icon", target:"_blank" %></div>
     <div class="container text-center w-50">
@@ -32,9 +31,9 @@
         <a class="btn round-bordered incrementer" data-offset="1">+</a>
       </div>
       <%= form_tag cart_items_path, class:"d-flex flex-column text-center" do %>
-        <%= select_tag "product_variation_id", options_from_collection_for_select(@product_variations, :id, :color), class:"mb-3" %>
+        <%#= select_tag "product_id", options_from_collection_for_select(@product, :id, :color), class:"mb-3" %>
         <%= hidden_field_tag :quantity, 1 %>
-        <%= submit_tag "Añadir a carrito", class:"" %>
+        <%= submit_tag "Añadir a carrito", class:"btn btn-primary rounded-pill" %>
       <% end %>   
     </div>
   </div>

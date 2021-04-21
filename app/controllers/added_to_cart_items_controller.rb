@@ -14,7 +14,7 @@ class AddedToCartItemsController < ApplicationController
     # Once I created it, I will add its ID to my CURRENT_CART_SESSION array
     # With this information I will display added_to_cart_items on INDEX
     @added_to_cart_item = AddedToCartItem.new(added_to_cart_item_params)
-    @added_to_cart_item.price = ProductVariation.find(params[:product_variation_id]).price
+    @added_to_cart_item.price = ProductVariation.find(params[:product_id]).price
     if @added_to_cart_item.save
       add_item_id_to_cart
       redirect_to "/cart"
@@ -60,6 +60,6 @@ class AddedToCartItemsController < ApplicationController
   end
 
   def added_to_cart_item_params
-    params.permit(:quantity, :product_variation_id, :price)
+    params.permit(:quantity, :product_id, :price)
   end
 end

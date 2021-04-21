@@ -10,7 +10,7 @@ puts "Starting seeds...."
 
 PROD = ["Lámpara de escritorio", "Araña", "Lámpara de pie", "Colgante", "Embutido", "Farola", "Aplique", "Bidireccional"]
 COL = ["Negro", "Cromo", "Blanco", "Gris", "Dorado"]
-CAT = ["Exterior","Baño","Cocina","Cocina", "Living","Dormitorio","Promociones"]
+CAT = ["Exterior","Baño","Cocina", "Living","Dormitorio","Promociones"]
 # Suppliers = ["Brimpex", "Candil", "FW","Tecnosam"]
 SUP = Supplier.all
 
