@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/contact', to: 'pages#contact'
 
-  resources :products, only: [:show, :index]
+  resources :products
   resources :categories, only: [:show]
   resources :orders, only: [:index, :create]
   resources :added_to_cart_items, only: [:create, :destroy, :update], as: :cart_items

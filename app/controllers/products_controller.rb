@@ -10,4 +10,7 @@ class ProductsController < ApplicationController
     @product_variations = @product.product_variations
     @added_to_cart_item = AddedToCartItem.new
   end
+
+  def new
+  end
 end
