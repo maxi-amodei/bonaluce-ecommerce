@@ -3,7 +3,7 @@
   <%= simple_form_for(@product) do |f| %>
     <%= f.input :name, label: 'Nombre del producto' %>
     <%= f.input :short_description, label: 'Descripción del producto', as: :text  %>
-    <%= f.input :supplier, label:'Proveedor', collection: Supplier.all %>
+    <%= f.association :supplier, label:'Proveedor', collection: Supplier.all %>
     <%= f.input :color, collection: @colors %>
     <%= f.input :price, label: 'Precio' %>
     <%#= f.input :discount_price, label: 'Porcentaje de descuento', placeholder: 'poner 1 si no tiene descuento' %>
@@ -11,7 +11,7 @@
     <%= f.input :product_length, label:'Largo' %>
     <%= f.input :product_width, label:'Ancho' %>
     <%= f.input :product_diameter, label:'Diametro' %>
-    <%= f.association :categories, label: 'Seleccionar categorias', as: :check_boxes, multiple: true, class:"d-flex flex-row"%>
+    <%= f.association :categories, label: 'Seleccionar categorias', as: :check_boxes, multiple: true%>
     <%= f.input :photos, label:'Cargar foto', as: :file, input_html: { multiple: true } %>
 
     <%= f.button :submit, class:"btn btn-primary rounded-pill" %>
