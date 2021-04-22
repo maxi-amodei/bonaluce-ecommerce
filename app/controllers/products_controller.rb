@@ -15,7 +15,14 @@ class ProductsController < ApplicationController
     @colors = colors
   end
 
+  def create
+    raise
+  end
   private
+
+  def product_params
+    params.require(:product).permit(:name, :short_description, :supplier, :color, :price, :product_height, :product_length, :product_diameter, photos: [])
+  end
 
   def colors
     ["Negro", "Cromo", "Blanco", "Gris", "Dorado"]
