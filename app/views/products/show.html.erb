@@ -32,6 +32,7 @@
       </div>
       <%= form_tag cart_items_path, class:"d-flex flex-column text-center" do %>
         <%#= select_tag "product_id", options_from_collection_for_select(@product, :id, :color), class:"mb-3" %>
+        <%= hidden_field_tag :product_id, @product.id %>
         <%= hidden_field_tag :quantity, 1 %>
         <%= submit_tag "Añadir a carrito", class:"btn btn-primary rounded-pill" %>
       <% end %>   
