@@ -1,10 +1,8 @@
-.margin-y-axis-home{
-  margin-top: 0vh;
-  margin-bottom: 20vh;
+.select-category{
+  font-weight: lighter;
 }
-.padding-x-axis-home{
-	padding-right: 0px !important;
-  padding-left: 0px !important;
+.select-category > h3:hover{
+  color:$blue;
 }
 
 .home-cards{
@@ -56,7 +54,6 @@
 .home-container a:hover{
 	color:$blue;	
 }
-
 
 /* first media query */
 @media(max-width: 800px) {
