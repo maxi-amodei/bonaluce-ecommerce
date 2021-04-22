@@ -15,10 +15,14 @@
     <%= render 'shared/navbar' %>
     <%= debug session[:last_visited_path] %>
     <%= render 'shared/flashes' %>
-    <div class="container-fluid margin-y-axis">
-    
+
+    <% if controller_name == "pages" && action_name == "home" %>
+      <div class="container-fluid margin-y-axis-home padding-x-axis-home">
+    <% else %>
+      <div class="container-fluid margin-y-axis">
+    <% end %>  
       <%= yield %>
-    </div>
+      </div>
     <%= render 'shared/footer' %>
   </body>
 </html>

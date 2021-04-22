@@ -1,3 +1,12 @@
+.margin-y-axis-home{
+  margin-top: 0vh;
+  margin-bottom: 20vh;
+}
+.padding-x-axis-home{
+	padding-right: 0px !important;
+  padding-left: 0px !important;
+}
+
 .home-cards{
 	display: grid;
 	grid-template-columns: repeat(3,1fr);
@@ -45,8 +54,7 @@
 }
 
 .home-container a:hover{
-	color:$blue;
-	
+	color:$blue;	
 }
 
 
