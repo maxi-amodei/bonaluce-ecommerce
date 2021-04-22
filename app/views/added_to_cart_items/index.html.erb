@@ -4,12 +4,13 @@
 <% @added_to_cart_products.each do |added_product| %>
   <div class="container d-flex justify-content-between">
     <%= added_product.product.name%>
-    <div class="d-flex >
+    <div class="d-flex" >
       <%= form_tag cart_item_path(added_product.id), class:"d-flex flex-column text-center update-form", method: :patch do %>
         <%= number_field_tag :quantity, added_product.quantity, min: 1,  class: 'text-center', style: "width:50px;" %>
       <% end %>
       <%= button_to cart_item_path(added_product.id), method: :delete, style:"border:none; background:none;" do %>
         <i class="fas fa-trash-alt"></i>
+        <i></i>
       <% end %>
     </div>
   </div>
