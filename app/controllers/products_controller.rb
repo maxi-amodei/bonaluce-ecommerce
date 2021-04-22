@@ -12,5 +12,12 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @colors = colors
+  end
+
+  private
+
+  def colors
+    ["Negro", "Cromo", "Blanco", "Gris", "Dorado"]
   end
 end
